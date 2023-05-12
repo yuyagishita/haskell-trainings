@@ -1,10 +1,36 @@
+main :: IO ()
 main = do print (add 2 4)
-          print (add 2 4 * 3)
-          print (square (add 2 (2 * 4)))
-          print (square $ add 2 $ 2 * 4)
+          print $ twice id 2
+          print $ twice square 4
+          print $ add2 2 3
+          print $ map (\x -> x*x) [1, 2, 3]
+          print $ double 3
 
+add :: Int -> Int -> Int
 add x y = x + y
+square :: Int -> Int
 square x = x * x
+
+factorial :: Int -> Int
+-- factorial x = 
+--   if x == 0 then 1
+--             else x * factorial (x - 1)
+factorial 0 = 1
+factorial x = x * factorial (x - 1)
+
+twice :: (a -> a) -> a -> a
+twice f x = f (f x)
+
+add2 = \ x y -> x+y
+
+mult :: Int -> Int -> Int
+mult x y = x * y
+double :: Int -> Int
+double = mult 2
+mult' :: (Int, Int) -> Int
+mult' (x, y) = x * y
+
+foo x y = f x (g y)
 
 n :: Int = 124
 m = 111 :: Int
