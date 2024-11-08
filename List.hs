@@ -17,6 +17,7 @@ main = do print "list"
           print $ [x | x <- [1..10], odd x]
           print $ [x |  x <- [1, 2]]
           print $ qsort [3, 2, 4, 1, 5]
+          print a
 
 x = 1 : 2 : 3 : []
 y = [1, 2, 3]
@@ -33,3 +34,5 @@ qsort [] = []
 qsort (p:xs) = qsort smaller ++ [p] ++ qsort larger
   where smaller = [x | x <- xs, x < p]
         larger = [x | x <- xs, x >= p]
+
+a = 1 : [2,3]
