@@ -36,3 +36,5 @@ qsort (p:xs) = qsort smaller ++ [p] ++ qsort larger
         larger = [x | x <- xs, x >= p]
 
 a = 1 : [2,3]
+
+
